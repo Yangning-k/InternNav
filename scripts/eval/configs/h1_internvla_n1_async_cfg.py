@@ -72,7 +72,7 @@ eval_cfg = EvalCfg(
             # 'selected_scans': ['8194nk5LbLH', 'pLe4wQe7qrG'],
         },
     ),
-    eval_type='vln_distributed',
+    eval_type='vln_distributed',  #evaluator 的真实位置在internnav/evaluator/vln_distributed_evaluator.py
     eval_settings={
         'save_to_json': True,
         'vis_output': False,

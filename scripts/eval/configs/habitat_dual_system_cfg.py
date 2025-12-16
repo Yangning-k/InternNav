@@ -24,7 +24,7 @@ eval_cfg = EvalCfg(
             'config_path': 'scripts/eval/configs/vln_r2r.yaml',
         },
     ),
-    eval_type='habitat_vln',
+    eval_type='habitat_vln',  #evaluator 的真实位置在internnav/habitat_extensions/habitat_vln_evaluator.py
     eval_settings={
         # all current parse args
         "output_path": "./logs/habitat/test_dual_system",  # output directory for logs/results
