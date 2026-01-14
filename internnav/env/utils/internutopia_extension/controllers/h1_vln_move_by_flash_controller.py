@@ -89,7 +89,6 @@ class VlnMoveByFlashController(BaseController):  # codespell:ignore
         Args:
             position, orientation: np.array, issac_robot.get_world_pose()
         """
-        # robot = self.robot.isaac_robot
         robot = self.robot.articulation
         robot._articulation.set_world_pose(position=position, orientation=orientation)
         robot._articulation.set_world_velocity(np.zeros(6))
@@ -108,7 +107,6 @@ class VlnMoveByFlashController(BaseController):  # codespell:ignore
             ArticulationAction: joint signals to apply (nothing).
         """
         # get robot new position
-        # positions, orientations = self.robot.isaac_robot.get_world_pose()
         positions, orientations = self.robot.articulation.get_world_pose()
         new_robot_position, new_robot_rotation = self.get_new_position_and_rotation(positions, orientations, action)
 

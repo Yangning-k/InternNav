@@ -39,15 +39,17 @@ class MetricCfg(BaseModel):
 
 class TaskCfg(BaseModel):
     task_name: Optional[str] = None
-    task_settings: Dict[str, Any]
-    scene: SceneCfg
+    task_settings: Dict[str, Any] = None
+    scene: SceneCfg = None
     robot_name: Optional[str] = None
     robot: Optional[RobotCfg] = None
     robot_flash: Optional[bool] = None
+    flash_collision: Optional[bool] = None
     robot_usd_path: Optional[str] = None
     camera_resolution: Optional[List[int]] = None
     metric: Optional[MetricCfg] = None
     camera_prim_path: Optional[str] = None
+    one_step_stand_still: Optional[bool] = None
 
 
 class EvalDatasetCfg(BaseModel):

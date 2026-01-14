@@ -47,12 +47,15 @@ with open('requirements/model_requirements.txt', 'r') as f:
 with open('requirements/isaac_requirements.txt', 'r') as f:
     isaac_requires = f.read().splitlines()
 
+with open('requirements/habitat_requirements.txt', 'r') as f:
+    habitat_requires = f.read().splitlines()
+
 with open('requirements/internvla_n1.txt', 'r') as f:
     n1_requires = f.read().splitlines()
 
 setuptools.setup(
     name='internnav',
-    version='0.2.0',
+    version='0.3.0',
     packages=setuptools.find_packages(),
     author='Intern Robotics',
     author_email='embodiedai@pjlab.org.cn',
@@ -74,12 +77,7 @@ setuptools.setup(
     extras_require={
         # envs
         "isaac": isaac_requires,
-        "habitat": [],
-        "demo": [
-            "gradio==5.45",
-            "hf-xet==1.1.5",
-            "huggingface-hub==0.33.4",
-        ],
+        "habitat": habitat_requires,
         # models
         "internvla_n1": n1_requires,
         "baseline": model_requires,

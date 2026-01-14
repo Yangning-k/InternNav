@@ -16,7 +16,7 @@ eval_cfg = EvalCfg(
         model_settings={
             'env_num': 1,
             'sim_num': 1,
-            'model_path': "checkpoints/InternVLA-N1",
+            'model_path': "checkpoints/InternVLA-N1-DualVLN",
             'camera_intrinsic': [[585.0, 0.0, 320.0], [0.0, 585.0, 240.0], [0.0, 0.0, 1.0]],
             'width': 640,
             'height': 480,
@@ -33,7 +33,7 @@ eval_cfg = EvalCfg(
             'infer_mode': 'partial_async',  # You can choose "sync" or "partial_async", but for this model, "partial_async" is better.
             # debug
             'vis_debug': True,  # If vis_debug=True, you can get visualization results
-            'vis_debug_path': './logs/test/vis_debug',
+            'vis_debug_path': './logs/test_n1/vis_debug',
         },
     ),
     env=EnvCfg(
@@ -44,7 +44,7 @@ eval_cfg = EvalCfg(
         },
     ),
     task=TaskCfg(
-        task_name='test',
+        task_name='test_n1',
         task_settings={
             'env_num': 1,
             'use_distributed': False,  # If the others setting in task_settings, please set use_distributed = False.
@@ -57,6 +57,7 @@ eval_cfg = EvalCfg(
         ),
         robot_name='h1',
         robot_flash=True,  # If robot_flash is True, the mode is flash (set world_pose directly); else you choose physical mode.
+        flash_collision=False,  # If flash_collision is True, the robot will stop when collision detected.
         robot_usd_path='data/Embodiments/vln-pe/h1/h1_internvla.usd',
         camera_resolution=[640, 480],  # (W,H)
         camera_prim_path='torso_link/h1_1_25_down_30',
@@ -75,7 +76,7 @@ eval_cfg = EvalCfg(
     eval_type='vln_distributed',  #evaluator 的真实位置在internnav/evaluator/vln_distributed_evaluator.py
     eval_settings={
         'save_to_json': True,
-        'vis_output': False,
+        'vis_output': True,
         'use_agent_server': False,  # If use_agent_server=True, please start the agent server first.
     },
 )
